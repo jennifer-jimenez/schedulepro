@@ -1,0 +1,63 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+body {
+    font-family: Avenir;
+    /*background-color: #F8F0FF;*/
+
+}
+
+.btn-primary {
+    background-color: #3fcbc9;
+    border-color: #3fcbc9;
+}
+
+.week {
+    float: inherit;
+}
+
+.day {
+    width: 200px;
+    height: 30px;
+}
+
+.card {
+    display: inline-table;
+    /*border-color: black;*/
+}
+
+td {
+    vertical-align: top;
+    width: 200px;
+}
+
+a {
+    color: black;
+}

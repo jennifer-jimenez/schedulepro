@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+<h5><b>Weekly Schedule</b></h5>
+<table class="week" border = 2px>
+  <tr style = "background-color: #6DAAE2;">
+    <th>Sunday</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+  </tr>
+  <tr>
+    <td class="day">
+      <table border = 1px>
+        {% for task in nontasks %}
+          {% if task.weekday == 1 %}
+            <tr><td class="test"><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}<br>{{task.starttime}}-{{task.endtime}}<br>{{task.location}}</a></td></tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </td>
+    <td class="day">
+    <table border = 1px>
+      {% for task in nontasks %}
+        {% if task.weekday == 2 %}
+          <tr><td><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}<br>{{task.starttime}}-{{task.endtime}}<br>{{task.location}}</a></td></tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+    </td>
+    <td class="day">
+      <table border = 1px>
+        {% for task in nontasks %}
+          {% if task.weekday == 3 %}
+            <tr><td><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}<br>{{task.starttime}}-{{task.endtime}}<br>{{task.location}}</a></td></tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </td>
+    <td class="day">
+      <table border = 1px>
+        {% for task in nontasks %}
+          {% if task.weekday == 4 %}
+            <tr><td><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}<br>{{task.starttime}}-{{task.endtime}}<br>{{task.location}}</a></td></tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </td>
+    <td class="day">
+      <table border = 1px>
+        {% for task in nontasks %}
+          {% if task.weekday == 5 %}
+            <tr><td><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}<br>{{task.starttime}}-{{task.endtime}}<br>{{task.location}}</a></td></tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </td>
+    <td class="day">
+      <table border = 1px>
+        {% for task in nontasks %}
+          {% if task.weekday == 6 %}
+            <tr><td><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}<br>{{task.starttime}}-{{task.endtime}}<br>{{task.location}}</a></td></tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </td>
+    <td class="day">
+      <table border = 1px>
+        {% for task in nontasks %}
+          {% if task.weekday == 7 %}
+            <tr><td><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}<br>{{task.starttime}}-{{task.endtime}}<br>{{task.location}}</a></td></tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+</table>
+
+<br>
+<h5><b>Random Tasks</b></h5>
+{% for task in anytasks %}
+<div class="card" style="height: 1rem;">
+  <div class="card-body">
+    <p class="card-text"><a href={{url_for('drop', t=task.taskname)}}>{{task.taskname}}, {{task.location}}</a></p>
+  </div>
+</div>
+{% endfor %}
+
+<br><br>
+<form action = "/optimize" method="post">
+  <button class="btn btn-primary" type="submit" id="optimize">Optimize</button>
+</form>
+{% endblock %}

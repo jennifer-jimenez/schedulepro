@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Task
+{% endblock %}
+
+{% block main %}
+<script type="text/javascript">
+
+function taskType() {
+    if (document.getElementById('any').checked) {
+        document.getElementById('ifAny').style.display = 'block';
+         document.getElementById('ifNon').style.display = 'none';
+    }
+    else if (document.getElementById('non').checked) {
+        document.getElementById('ifNon').style.display = 'block';
+         document.getElementById('ifAny').style.display = 'none';
+    }
+    else document.getElementById('ifNon').style.display = 'none';
+}
+
+</script>
+<!--modified this code for making radio button selection show more options-->
+<!--https://stackoverflow.com/questions/17621515/how-to-show-and-hide-input-fields-based-on-radio-button-selection-->
+
+<p>Add a task</p>
+    <form method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="task" placeholder="Title" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="loc" placeholder="Location" type="text">
+        </div>
+        <div class="form-group">
+            <input type="radio" onclick="javascript:taskType();" name="type" value="any" id="any">Anytime<br>
+            <input type="radio" onclick="javascript:taskType();" name="type" value="non" id="non">Non-Negotiable<br>
+                <div id="ifAny" style="display:none">
+                    <div class="form-group">
+                    <br>
+                    </div>
+                    <p>By when does this task need to be completed?</p>
+                    <input autocomplete="off" autofocus class="form-control" name="deadday" placeholder="Weekday" type="text">
+                    <input autocomplete="off" autofocus class="form-control" name="deadtime" placeholder="Time" type="time">
+                </div>
+                <div id="ifNon" style="display:none">
+                    <br>
+                    <p>On which day of the week does this occur?</p>
+                    <input autocomplete="off" autofocus class="form-control" name="weekday" placeholder="Weekday" type="text">
+                    <p>Start Time:</p>
+                    <input autocomplete="off" autofocus class="form-control" name="starttime" placeholder="Time" type="time">
+                    <p>End Time:</p>
+                    <input autocomplete="off" autofocus class="form-control" name="endtime" placeholder="Time" type="time">
+                </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Enter Task</button>
+    </form>
+{% endblock %}
