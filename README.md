@@ -19,10 +19,9 @@ through a function I defined as "closest" under the "optimize" route in applicat
 
 ## Running the Website
 
-Change into the correct directory, and run website with the following terminal commands
-/cd project
-/cd implementation
-export API_KEY=[your api key]
+Change into the correct directory using /cd [foldername] in terminal.  
+Once in correct directory, run website with the following terminal commands:  
+export API_KEY=[your api key]  
 flask run
 
 ## Entering Locations
